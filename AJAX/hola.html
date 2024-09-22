@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOLAAAAAAA</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("button").click(function(){
+			$.getJSON('https://jsonplaceholder.typicode.com/posts', {format: "json"}, function(resultado) {
+				for (var i = resultado.length -1; i >= 0; i--) {
+					$("#div1").html(resultado[i].id); 
+					$("#div2").html(resultado[i].title); 
+					$("#div3").html(resultado[i].body);
+				}
+			});
+		});
+	});
+				/*url: "https://jsonplaceholder.typicode.com/posts",
+				success:function(result){
+					for(var algo in result){
+						$("#div1").html(result[algo].id);
+						$("#div2").html(result[algo].title);
+						$("#div3").html(result[algo].body);
+						algo++;
+                    }
+				}
+			});
+		});
+	});*/
+</script>
+</head>
+<body>
+	<div id="div1"><h2>Aquí se pondrá el ID.</h2></div>
+	<div id="div2"><h2>Aquí va el título.</h2></div>
+	<div id="div3"><h2>Y aquí va el cuerpo.</h2></div>
+	<button>Da clic aquí</button>
+</body>
+</html>
